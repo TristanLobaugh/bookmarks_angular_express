@@ -21,16 +21,17 @@ bookmarksApp.controller("mainController", function($scope, $http, $location){
 //call to backend to get the list of bookmarks
 	function getBookmarks(){
 		console.log("getting bookmarks")
-		var apiUrl = myUrl + "get_bookmarks";
+		var apiUrl = "http://localhost:3090/get_bookmarks";
 		$http.get(apiUrl)
 		.then(function successCallback(response){
-			console.log(response);
+			console.log(response.data);
 			if(response.data ==  null){
 
 			}else{
-				$scope.bookmarks = response.data.bookmarks;
+				$scope.bookmarks = response.data;
 			}
 		}, function errorCallback(response){
+			console.log("fail");
 			$scope.result = "ERROR!!! "	+ response.status;
 			// console.log($scope.result);
 		});
