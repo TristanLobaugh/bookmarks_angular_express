@@ -23,4 +23,14 @@ router.get("/get_bookmarks", function(req, res, next){
 	});
 });
 
+router.post("/add_bookmark", function(req, res, next){
+	db.collection("bookmark").insertOne({
+		title: req.body.title,
+		address: req.body.address,
+		viewCount: 0
+	});
+	var success = "success";
+	res.json(success);
+});
+
 module.exports = router;

@@ -1,4 +1,6 @@
 var bookmarksApp = angular.module("bookmarksApp", ["ngRoute"]);
+var myUrl = "http://localhost:3090/";
+
 
 bookmarksApp.config(function($routeProvider){
 	$routeProvider.when("/", {
@@ -16,30 +18,39 @@ bookmarksApp.config(function($routeProvider){
 
 bookmarksApp.controller("mainController", function($scope, $http, $location){
 	getBookmarks();
-	var myUrl = "http://localhost:3090/"
 
 //call to backend to get the list of bookmarks
 	function getBookmarks(){
-		console.log("getting bookmarks")
-		var apiUrl = "http://localhost:3090/get_bookmarks";
+		var apiUrl = myUrl + "get_bookmarks";
 		$http.get(apiUrl)
 		.then(function successCallback(response){
-			console.log(response.data);
 			if(response.data ==  null){
 
 			}else{
 				$scope.bookmarks = response.data;
 			}
 		}, function errorCallback(response){
-			console.log("fail");
 			$scope.result = "ERROR!!! "	+ response.status;
-			// console.log($scope.result);
 		});
 	}
 
 //post to backend to add a bookmark
 	$scope.addBookmark = function(){
-
+		var apiUrl = myUrl + "add_bookmark";
+		$http.post(apiUrl, {
+			title: $scope.title,
+			address: $scope.address	
+		}).then(function successCallback(response){
+			if(response.data ==  "success"){
+				$scope.message = true;
+				$scope.success = "Success! Your bookmark has been added!"
+				$location.path("/success");
+			}else{
+				console.log("error");
+			}
+		}, function errorCallback(response){
+			$scope.result = "ERROR!!! "	+ response.status;
+		});
 	}
 
 //post to backend to remove a bookmark
@@ -51,6 +62,33 @@ bookmarksApp.controller("mainController", function($scope, $http, $location){
 	$scope.gotoBookmark = function(){
 
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

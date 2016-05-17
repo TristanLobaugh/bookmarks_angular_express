@@ -1,0 +1,21 @@
+body{
+	img{
+		width: 100%;
+	}
+	#bookmarks-wrapper{
+		margin-top: 50px;
+	}
+	#adder-wrapper{
+		margin: 50px 0;
+		border: 3px solid #ffe6cc;
+		border-radius: 10px;
+		background-color: #ccffff;
+		padding: 20px;
+		input, label{
+			width: 80%;
+		}
+		#adder-button{
+			margin-top: 20px;
+		}
+	}
+}
