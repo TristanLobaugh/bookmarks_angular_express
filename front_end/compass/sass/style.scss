@@ -4,6 +4,9 @@ body{
 	}
 	#bookmarks-wrapper{
 		margin-top: 50px;
+		.bookmark{
+			margin-bottom: 15px;
+		}
 	}
 	#adder-wrapper{
 		margin: 50px 0;
@@ -18,4 +21,5 @@ body{
 			margin-top: 20px;
 		}
 	}
+
 }

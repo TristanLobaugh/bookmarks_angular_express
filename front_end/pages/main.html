@@ -5,9 +5,9 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Option 1</a></li>
-            <li><a href="#">Option 2</a></li> 
-            <li><a href="#">Option 3</a></li>
+            <li><a href="#">Group 1</a></li>
+            <li><a href="#">Group 2</a></li> 
+            <li><a href="#">Group 3</a></li>
         </ul>
     </div>
 </nav>
@@ -36,7 +36,7 @@
         
         <div ng-show="message" class="text-success col-md-12 text-center">{{success}}</div>
 
-        <div ng-repeat="bookmark in bookmarks track by $index" class="col-md-8 col-md-offset-2">
+        <div ng-repeat="bookmark in bookmarks track by $index" class="bookmark col-md-8 col-md-offset-2">
             <div class="col-md-2">
                 <a ng-click="gotoBookmark(bookmark);" href="{{bookmark.address}}" target="_blank"><button type="button" class="btn btn-success">Go To</button></a>
             </div>

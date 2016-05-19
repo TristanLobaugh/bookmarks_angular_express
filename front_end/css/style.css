@@ -6,7 +6,11 @@ body img {
 body #bookmarks-wrapper {
   margin-top: 50px;
 }
-/* line 8, ../compass/sass/style.scss */
+/* line 7, ../compass/sass/style.scss */
+body #bookmarks-wrapper .bookmark {
+  margin-bottom: 15px;
+}
+/* line 11, ../compass/sass/style.scss */
 body #adder-wrapper {
   margin: 50px 0;
   border: 3px solid #ffe6cc;
@@ -14,11 +18,11 @@ body #adder-wrapper {
   background-color: #ccffff;
   padding: 20px;
 }
-/* line 14, ../compass/sass/style.scss */
+/* line 17, ../compass/sass/style.scss */
 body #adder-wrapper input, body #adder-wrapper label {
   width: 80%;
 }
-/* line 17, ../compass/sass/style.scss */
+/* line 20, ../compass/sass/style.scss */
 body #adder-wrapper #adder-button {
   margin-top: 20px;
 }
