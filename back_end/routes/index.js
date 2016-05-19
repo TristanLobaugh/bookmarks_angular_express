@@ -17,6 +17,7 @@ router.get("/get_bookmarks", function(req, res, next){
 	db.collection("bookmark").find().toArray(function(error, bookmarks){
 		if(bookmarks.length === 0){
 			console.log("***NO BOOKMARKS***");
+			res.json();
 		}else{
 			res.json(bookmarks);
 		}
@@ -25,11 +26,39 @@ router.get("/get_bookmarks", function(req, res, next){
 
 router.post("/add_bookmark", function(req, res, next){
 	db.collection("bookmark").insertOne({
+		id: Date.now(),
 		title: req.body.title,
 		address: req.body.address,
 		viewCount: 0
 	});
-	var success = "success";
+	var success = "added";
+	res.json(success);
+});
+
+router.post("/remove_bookmark", function(req, res, next){
+	db.collection("bookmark").remove({id: req.body.id},
+		function (err, result){ 
+			if(err){
+				console.log("Error "+ err);
+               //check result to see how many document are deleted
+			}
+         });
+	var success = "removed";
+	res.json(success);
+});
+
+router.post("/goto_bookmark", function(req, res, next){
+	console.log(req.body.id);
+	db.collection("bookmark").update(
+		{id: req.body.id},
+		{$inc: {viewCount: 1}},
+		function (err, result){ 
+			if(err){
+				console.log("Error "+ err);
+               //check result to see how many document are deleted
+			}
+         });
+	var success = "counted";
 	res.json(success);
 });
 
