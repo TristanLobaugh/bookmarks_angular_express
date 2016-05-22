@@ -13,6 +13,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+// get request that is made on view loads. Makes query to db to find all bookmarks
+// and send them back to the angular controller.
 router.get("/get_bookmarks", function(req, res, next){
 	db.collection("bookmark").find().toArray(function(error, bookmarks){
 		if(bookmarks.length === 0){
@@ -24,6 +26,7 @@ router.get("/get_bookmarks", function(req, res, next){
 	});
 });
 
+// post to add bookmark to db. Uses insertOne to add one bookmark to the db.
 router.post("/add_bookmark", function(req, res, next){
 	db.collection("bookmark").insertOne({
 		id: Date.now(),
@@ -36,18 +39,19 @@ router.post("/add_bookmark", function(req, res, next){
 	res.json(success);
 });
 
+// post to remove bookmark with the matching id from the db
 router.post("/remove_bookmark", function(req, res, next){
 	db.collection("bookmark").remove({id: req.body.id},
 		function (err, result){ 
 			if(err){
 				console.log("Error "+ err);
-               //check result to see how many document are deleted
 			}
          });
 	var success = "removed";
 	res.json(success);
 });
 
+// increments the viewcount in the db using the $inc feature
 router.post("/goto_bookmark", function(req, res, next){
 	console.log(req.body.id);
 	db.collection("bookmark").update(
@@ -56,13 +60,13 @@ router.post("/goto_bookmark", function(req, res, next){
 		function (err, result){ 
 			if(err){
 				console.log("Error "+ err);
-               //check result to see how many document are deleted
 			}
          });
 	var success = "counted";
 	res.json(success);
 });
 
+// updates the bookmark in the db with the matching id using the $set feature
 router.post("/update_bookmark", function(req, res, next){
 	console.log(req.body.id);
 	db.collection("bookmark").update(
@@ -77,13 +81,10 @@ router.post("/update_bookmark", function(req, res, next){
 		function (err, result){ 
 			if(err){
 				console.log("Error "+ err);
-               //check result to see how many document are deleted
 			}
          });
 	var success = "updated";
 	res.json(success);
 });
-
-
 
 module.exports = router;

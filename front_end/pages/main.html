@@ -11,7 +11,6 @@
                   <li ng-repeat="bookmark in bookmarks | filter: group"><a ng-click="gotoBookmark(bookmark);" href="{{bookmark.address}}" target="_blank">{{bookmark.title}}</a></li>
                 </ul>
             </li>
-            <li><a href="#">Add Group</a></li>
         </ul>
         <ul id="edit-wrapper" class="nav navbar-nav">
             <li><a href="#/edit">Edit Bookmarks</a></li>
@@ -25,8 +24,9 @@
             <div class="col-sm-12 text-center">
                     <button id="bar-add-button" type="submit" class="btn btn-primary">ADD CURRENT PAGE</button>
             </div>
-            <input class="col-sm-12 form-control" type="url" id="url-text" ng-model="iframeUrl" value="{{iframeUrl}}" required placeholder="http://www.w3schools.com/">
+            <input class="col-sm-12 form-control" type="url" id="url-text" ng-model="iframeUrl" value="{{iframeUrl}}" required placeholder="i.e. http://www.w3schools.com/">
         </form>
+        <h3 id="favorites"class="col-sm-12 text-center">Most Popular</h3>
             <ul>
                 <li class="bookmark-bar-bookmark col-sm-12" ng-repeat="bookmark in bookmarks | orderBy: 'viewCount': true"><span ng-click="changeUrl(bookmark, $event);" class="titles col-sm-7">{{bookmark.title}}</span><span class="views col-sm-5">Views: <span id="number-of-views">{{bookmark.viewCount}}</span></span></li>
             </ul>

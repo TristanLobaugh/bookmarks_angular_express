@@ -11,7 +11,6 @@
                    <li ng-repeat="bookmark in bookmarks | filter: group"><a ng-click="gotoBookmark(bookmark);" href="{{bookmark.address}}" target="_blank">{{bookmark.title}}</a></li>
                 </ul>
             </li>
-            <li><a href="#">Add Group</a></li>
         </ul>
         <ul id="edit-wrapper" class="nav navbar-nav">
             <li class="active"><a href="#/edit">Edit Bookmarks</a></li>

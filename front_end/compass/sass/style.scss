@@ -17,6 +17,9 @@ body{
 			#url-text{
 				font-size: 12px;
 			}
+			#favorites{
+				margin-top: 10px;
+			}
 			ul{
 				list-style: none;
 				padding: 0;
@@ -59,9 +62,9 @@ body{
 	}
 	#adder-wrapper{
 		margin: 50px 0;
-		border: 3px solid #ffe6cc;
+		border: 3px solid #ccc;
 		border-radius: 10px;
-		background-color: #ccffff;
+		background-color: #9d9d9d;
 		padding: 20px;
 		input, label{
 			width: 80%;
