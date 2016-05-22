@@ -2,6 +2,55 @@ body{
 	img{
 		width: 100%;
 	}
+	#edit-wrapper{
+		float: right;
+	}
+	#bookmarks-bar-wrapper{
+		margin-top: 50px;
+		width: 15%;
+		background-color: #9d9d9d;
+		#bookmark-bar{
+			#bar-add-button{
+				text-align: center;
+				margin: 10px auto;
+			}
+			#url-text{
+				font-size: 12px;
+			}
+			ul{
+				list-style: none;
+				padding: 0;
+				li{
+					font-size: 16px;
+					padding: 0;
+					border-top: 1px solid black;
+					border-bottom: 1px solid black;
+
+					span{
+						padding: 10px 0;
+						}
+					.titles{
+						background-color: #9d9d9d;
+					}
+					.titles:hover{
+						color: white;
+						cursor: pointer;
+
+					}
+					.views{
+						text-align: center;
+						background-color: #8c8c8c;
+					}
+				}
+			}
+		}
+	}
+	#iframe{
+		position: absolute;
+		top: 50px;
+		left: 15%;
+		width: 85%;
+	}
 	#bookmarks-wrapper{
 		margin-top: 50px;
 		.bookmark{
@@ -19,6 +68,22 @@ body{
 		}
 		#adder-button{
 			margin-top: 20px;
+		}
+	}
+	.group-select{
+		height: 34px;
+		width: 100%;
+		border: 1px solid #ccc;
+		padding: 6px 12px;
+		font-size: 14px;
+		border-radius: 4px;
+	}
+	.modal-footer{
+		#updater-button{
+			float: left;
+		}
+		button{
+			margin-top: 15px;
 		}
 	}
 

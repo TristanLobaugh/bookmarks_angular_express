@@ -1,51 +1,38 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-        <a class="navbar-brand" href="#">THE MASTER BOOKMARK MANAGER</a>
+        <a class="navbar-brand" href="#/">THE MASTER BOOKMARK MANAGER</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Group 1</a></li>
-            <li><a href="#">Group 2</a></li> 
-            <li><a href="#">Group 3</a></li>
+            <li class="active"><a href="#/">Home</a></li>
+            <li class="dropdown" ng-repeat="group in groups track by $index">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">{{group}} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li ng-repeat="bookmark in bookmarks | filter: group"><a ng-click="gotoBookmark(bookmark);" href="{{bookmark.address}}" target="_blank">{{bookmark.title}}</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Add Group</a></li>
+        </ul>
+        <ul id="edit-wrapper" class="nav navbar-nav">
+            <li><a href="#/edit">Edit Bookmarks</a></li>
         </ul>
     </div>
 </nav>
 
-<div class="container">
-    <div id="bookmarks-wrapper">
-        <div id="adder-wrapper" class="col-md-12">
-            <form id="addBookmark-form" name="bookmark-adder" role="form" ng-submit="addBookmark(this)">
-                <div class="col-md-3">
-                    <label>Title</label>
-                    <input type="text" ng-model="title" class="form-control" placeholder="i.e. Google" required="title">
-                </div>
-                <div class="col-md-5">
-                    <label>Address</label>
-                    <input type="url" ng-model="address" placeholder="https://www.google.com/" required>
-                </div>
-                <div class="col-md-3">
-                    <label>Group</label>
-                    <input type="text" ng-model="group" placeholder="" required="group">
-                </div>
-                <div class="col-md-1">
-                    <button id="adder-button" type="submit" class="btn btn-success">ADD</button>
-                </div>
-            </form>
-        </div>
-        
-        <div ng-show="message" class="text-success col-md-12 text-center">{{success}}</div>
-
-        <div ng-repeat="bookmark in bookmarks track by $index" class="bookmark col-md-8 col-md-offset-2">
-            <div class="col-md-2">
-                <a ng-click="gotoBookmark(bookmark);" href="{{bookmark.address}}" target="_blank"><button type="button" class="btn btn-success">Go To</button></a>
+<div id="bookmarks-bar-wrapper" ng-style="{height: myHeight}">
+    <div id="bookmark-bar">
+        <form id="addBookmark-form-main" name="bookmark-adder-main" role="form" ng-submit="addBookmark(iframeUrl)">
+            <div class="col-sm-12 text-center">
+                    <button id="bar-add-button" type="submit" class="btn btn-primary">ADD CURRENT PAGE</button>
             </div>
-            <div class="col-md-2">{{bookmark.title}}</div>
-            <div class="col-md-4">{{bookmark.address}}</div>
-            <div class="col-md-2">Views: {{bookmark.viewCount}}</div>
-            <div class="col-md-2"><button type="button" class="btn btn-danger" ng-click="removeBookmark(bookmark);" >Delete</button></div>
-        </div>
-
-    </div> 
-
+            <input class="col-sm-12 form-control" type="url" id="url-text" ng-model="iframeUrl" value="{{iframeUrl}}" required placeholder="http://www.w3schools.com/">
+        </form>
+            <ul>
+                <li class="bookmark-bar-bookmark col-sm-12" ng-repeat="bookmark in bookmarks | orderBy: 'viewCount': true"><span ng-click="changeUrl(bookmark, $event);" class="titles col-sm-7">{{bookmark.title}}</span><span class="views col-sm-5">Views: <span id="number-of-views">{{bookmark.viewCount}}</span></span></li>
+            </ul>
+    </div>
 </div>
+
+<iframe id="iframe" class="" ng-style="{height: myHeight}" ng-src="{{iframeUrl | trustAsResourceUrl}}"></iframe>
+
+

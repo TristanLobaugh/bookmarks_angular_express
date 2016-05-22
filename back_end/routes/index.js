@@ -29,6 +29,7 @@ router.post("/add_bookmark", function(req, res, next){
 		id: Date.now(),
 		title: req.body.title,
 		address: req.body.address,
+		group: req.body.group,
 		viewCount: 0
 	});
 	var success = "added";
@@ -61,5 +62,28 @@ router.post("/goto_bookmark", function(req, res, next){
 	var success = "counted";
 	res.json(success);
 });
+
+router.post("/update_bookmark", function(req, res, next){
+	console.log(req.body.id);
+	db.collection("bookmark").update(
+		{id: req.body.id},
+		{
+			$set: 	{
+						title: req.body.title,
+						address: req.body.address,
+						group: req.body.group
+					}
+		},
+		function (err, result){ 
+			if(err){
+				console.log("Error "+ err);
+               //check result to see how many document are deleted
+			}
+         });
+	var success = "updated";
+	res.json(success);
+});
+
+
 
 module.exports = router;
