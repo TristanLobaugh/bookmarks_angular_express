@@ -4,7 +4,7 @@ var bookmarksApp = angular.module("bookmarksApp", ["ngRoute"])
 					        return $sce.trustAsResourceUrl(val);
 					    };
 					}])
-var myUrl = "http://localhost:3090/";
+var myUrl = "http://tristanlobaugh.com:3090/";
 
 bookmarksApp.config(function($routeProvider){
 	$routeProvider.when("/", {
