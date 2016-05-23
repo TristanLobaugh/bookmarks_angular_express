@@ -1,10 +1,10 @@
 # Bookmarks
 
-### Bookmarks app build using AngularJS for the front-end, Express for back-end and Mongodb as the database.
+### Bookmarks app build using AngularJS with Routes for the front-end, Express for back-end and Mongodb as the database. 
 
 ## Summary
 
-#### App makes use of Angular to create the view and bind features like viewcounts and list to the view. The Angular controller makes API calls to an express server that in turns makes calls to a Mongo Database to access/update/delete data for each bookmark.
+#### App makes use of Angular to create the view and bind features like viewcounts and list to the view. The Angular controller makes API calls to an express server that in turns makes calls to a Mongo Database to access/update/delete data for each bookmark. Bootstrap was used for styling features and a modal. Jquery was used in a few much of the front end javascript functions for ease of access to elements and sorting arrays.
 
 ### Author: Tristan Lobaugh 
 + Github - https://github.com/TristanLobaugh
