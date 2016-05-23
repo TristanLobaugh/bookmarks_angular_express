@@ -88,10 +88,7 @@
                 </div>
                 <div class="col-md-3">
                     <label>Group</label>
-                    <select name="group-selector" class="group-select" ng-model="group" required>
-                        <option value="none" ng-selected="true">None</option>
-                        <option ng-repeat="group in groups track by $index">{{group}}</option>
-                    </select>
+                     <input type="text" ng-model="group" class="form-control" value="{{group}}" required>
                     <input type="hidden" ng-model="id" class="form-control" value="{{id}}">
                 </div>  
           <div class="modal-footer">
