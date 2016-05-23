@@ -17,7 +17,10 @@
 ## Screenshots
 
 ### Main page:
-![alt text](https://raw.githubusercontent.com/TristanLobaugh/******/master/img/screen_shot.png)
+![alt text](https://raw.githubusercontent.com/TristanLobaugh/bookmarks_angular_express/master/img/screen_shot.png)
+
+### edit page:
+![alt text](https://raw.githubusercontent.com/TristanLobaugh/bookmarks_angular_express/master/img/screen_shot2.png)
 
 
 ##Code Examples
