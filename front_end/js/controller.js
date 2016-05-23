@@ -80,7 +80,7 @@ bookmarksApp.controller("mainController", function($scope, $http, $location){
 			$scope.title = prompt("Please enter a title for you page.")
 			if($scope.title != null){
 				$scope.address = address;
-				$scope.group = none;
+				$scope.group = "none";
 			}else{
 				console.log(failure);
 				$location.path("/failure");
