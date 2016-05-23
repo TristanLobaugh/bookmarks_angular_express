@@ -153,6 +153,7 @@ bookmarksApp.controller("mainController", function($scope, $http, $location){
 		$scope.id = bookmark.id;
 		$scope.title = bookmark.title;
 		$scope.address = bookmark.address;
+		$scope.group = bookmark.group;
 	}
 
 //post to server to update the bookmark when being editied with the edit modal
